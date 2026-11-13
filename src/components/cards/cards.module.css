@@ -1,0 +1,45 @@
+/* ---------- Progress strip ---------- */
+.progress { display: grid; gap: var(--s-3); }
+.progressHead { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-3); }
+.progressTitle { font-family: var(--f-mono); font-size: var(--fs-cap); font-weight: 500; letter-spacing: var(--tr-cap); color: var(--c-text-2); }
+.stages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  background: var(--c-surface);
+}
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'code name' 'code status';
+  column-gap: var(--s-3);
+  row-gap: 2px;
+  padding: var(--s-3) var(--s-4);
+  min-width: 0;
+}
+.stage + .stage { border-left: 1px solid var(--c-border); }
+.stageBar { position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: transparent; }
+.stageCode { grid-area: code; font-family: var(--f-mono); font-size: var(--fs-lg); line-height: 1; color: var(--c-text-3); }
+.stageName { grid-area: name; font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0.06em; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stageStatus { grid-area: status; font-family: var(--f-mono); font-size: var(--fs-cap); letter-spacing: var(--tr-cap); color: var(--c-text-2); }
+
+.stage_completed .stageBar { background: var(--c-border-strong); }
+.stage_completed .stageCode { color: var(--c-text-2); }
+.stage_completed .stageName { color: var(--c-text-2); }
+.stage_active { background: var(--c-accent-wash); }
+.stage_active .stageBar { background: var(--c-accent); }
+.stage_active .stageCode, .stage_active .stageStatus { color: var(--c-accent); }
+.stage_locked .stageStatus { color: var(--c-text-3); }
+
+@media (max-width: 860px) {
+  .stages { grid-template-columns: 1fr; }
+  .stage + .stage { border-left: 0; border-top: 1px solid var(--c-border); }
+  .stage { grid-template-columns: 36px 1fr auto; grid-template-areas: 'code name status'; align-items: center; }
+  .stageCode { font-size: var(--fs-md); }
+  .stageBar { right: auto; bottom: -1px; width: 1px; height: auto; }
+}

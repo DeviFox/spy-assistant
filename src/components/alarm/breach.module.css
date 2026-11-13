@@ -1,0 +1,99 @@
+/* Screen-wide breach before the access request. Colours stay inside the pinned palette. */
+.breach {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  cursor: wait;
+}
+
+/* Error windows */
+.popAnchor { position: absolute; width: 300px; }
+.echo {
+  position: absolute;
+  inset: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-error);
+  border-top-width: 2px;
+}
+.pop {
+  position: relative;
+  background: var(--c-surface);
+  border: 1px solid var(--c-error);
+  border-top: 2px solid var(--c-error);
+  border-radius: var(--r);
+  font-family: var(--f-mono);
+  animation: pop-in 140ms steps(3, end);
+}
+@keyframes pop-in {
+  from { clip-path: inset(46% 0 46% 0); }
+  to { clip-path: inset(0); }
+}
+.popHead {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  height: 28px;
+  padding: 0 var(--s-3);
+  background: var(--c-error-wash);
+  border-bottom: 1px solid var(--c-border);
+  font-size: var(--fs-cap);
+  font-weight: 500;
+  letter-spacing: var(--tr-cap);
+  color: var(--c-error);
+}
+.popCode { margin-left: auto; color: var(--c-text-2); }
+.popHead svg:last-child { color: var(--c-text-3); }
+.popMsg { padding: var(--s-3); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text); }
+.popFoot {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--s-3) var(--s-2);
+  font-size: var(--fs-cap);
+  letter-spacing: var(--tr-cap);
+  color: var(--c-text-3);
+}
+.warn, .warn .popHead { border-color: var(--c-warning); }
+.warn { border-top-color: var(--c-warning); }
+.warn .popHead { background: var(--c-warning-wash); color: var(--c-warning); border-bottom-color: var(--c-border); }
+
+/* Tears: horizontal bands that slip sideways for one tick. */
+.tear { position: absolute; left: -80px; right: -80px; pointer-events: none; }
+.hatch { background: var(--hatch); opacity: 0.85; }
+.line { height: 1px !important; background: var(--c-accent); }
+.plate { background: var(--c-surface-2); border-block: 1px solid var(--c-border-strong); }
+.red { background: var(--c-error-wash); border-block: 1px solid var(--c-error); }
+
+/* One-frame dropout */
+.black { position: absolute; inset: 0; background: var(--c-ground); }
+
+/* Handover to the countdown */
+.handover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--s-3);
+  background: var(--c-ground);
+}
+.handText {
+  font-family: var(--f-mono);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--c-error);
+  animation: slip 380ms steps(6, end) 1;
+  --slip-a: var(--c-error);
+  --slip-b: var(--c-warning);
+}
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.9em;
+  margin-left: 0.2em;
+  vertical-align: -0.1em;
+  background: currentColor;
+  animation: caret-blink 0.5s steps(1) infinite;
+}
+.handSub { font-size: var(--fs-md); color: var(--c-text-2); }

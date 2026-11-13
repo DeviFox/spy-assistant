@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T08:53:07+00:00",
+  "title": "Design System: MUSYA.exe",
+  "extensions": {
+    "colorMeta": {
+      "graphite-ground": {
+        "role": "neutral",
+        "displayName": "Graphite Ground",
+        "canonical": "#101310",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#232623",
+          "#404340",
+          "#5f625f",
+          "#808380",
+          "#a3a6a3",
+          "#c7cac7",
+          "#edefed"
+        ]
+      },
+      "field-plate": {
+        "role": "neutral",
+        "displayName": "Field Plate",
+        "canonical": "#171d18",
+        "tonalRamp": [
+          "#090c0a",
+          "#222623",
+          "#3e443f",
+          "#5d635e",
+          "#7d847e",
+          "#a1a7a1",
+          "#c5cbc6",
+          "#ebf0ec"
+        ]
+      },
+      "raised-plate": {
+        "role": "neutral",
+        "displayName": "Raised Plate",
+        "canonical": "#1d251f",
+        "tonalRamp": [
+          "#080c09",
+          "#212722",
+          "#3d443f",
+          "#5b645d",
+          "#7c857e",
+          "#9fa7a1",
+          "#c4cbc6",
+          "#eaf0ec"
+        ]
+      },
+      "top-plate": {
+        "role": "neutral",
+        "displayName": "Top Plate",
+        "canonical": "#232d26",
+        "tonalRamp": [
+          "#080d09",
+          "#202722",
+          "#3c443e",
+          "#5a645d",
+          "#7b867e",
+          "#9ea8a1",
+          "#c3ccc5",
+          "#e9f1eb"
+        ]
+      },
+      "dossier-text": {
+        "role": "neutral",
+        "displayName": "Dossier Text",
+        "canonical": "#dce5dc",
+        "tonalRamp": [
+          "#090c09",
+          "#222622",
+          "#3e443e",
+          "#5c645c",
+          "#7d857d",
+          "#a0a7a0",
+          "#c5cbc5",
+          "#ebf0eb"
+        ]
+      },
+      "muted-sage": {
+        "role": "neutral",
+        "displayName": "Muted Sage",
+        "canonical": "#859187",
+        "tonalRamp": [
+          "#080d09",
+          "#202722",
+          "#3c453d",
+          "#5a645c",
+          "#7b867c",
+          "#9ea8a0",
+          "#c3ccc4",
+          "#e9f1eb"
+        ]
+      },
+      "faint-sage": {
+        "role": "neutral",
+        "displayName": "Faint Sage",
+        "canonical": "#808c82",
+        "tonalRamp": [
+          "#080d09",
+          "#202722",
+          "#3c453d",
+          "#5a645c",
+          "#7b867c",
+          "#9ea8a0",
+          "#c3ccc4",
+          "#e9f1ea"
+        ]
+      },
+      "phosphor": {
+        "role": "primary",
+        "displayName": "Phosphor",
+        "canonical": "#9fe3b2",
+        "tonalRamp": [
+          "#001102",
+          "#022e14",
+          "#1a4e2d",
+          "#337048",
+          "#559268",
+          "#7fb48e",
+          "#a9d6b5",
+          "#d4fadd"
+        ]
+      },
+      "phosphor-hover": {
+        "role": "primary",
+        "displayName": "Phosphor Hover",
+        "canonical": "#b6ecc5",
+        "tonalRamp": [
+          "#001004",
+          "#0c2c18",
+          "#254c32",
+          "#3f6d4e",
+          "#608f6e",
+          "#87b193",
+          "#b0d4b9",
+          "#d9f8e1"
+        ]
+      },
+      "phosphor-ink": {
+        "role": "primary",
+        "displayName": "Phosphor Ink",
+        "canonical": "#0f1a12",
+        "tonalRamp": [
+          "#070d09",
+          "#202721",
+          "#3b453d",
+          "#59655b",
+          "#79867c",
+          "#9da9a0",
+          "#c2ccc4",
+          "#e8f1ea"
+        ]
+      },
+      "brass-amber": {
+        "role": "secondary",
+        "displayName": "Brass Amber",
+        "canonical": "#d6b46a",
+        "tonalRamp": [
+          "#160800",
+          "#342100",
+          "#563e00",
+          "#795c10",
+          "#9c7e39",
+          "#bca268",
+          "#dec695",
+          "#ffecc4"
+        ]
+      },
+      "signal-red": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#d77d75",
+        "tonalRamp": [
+          "#200001",
+          "#441110",
+          "#6b2b27",
+          "#944641",
+          "#b96861",
+          "#d98e87",
+          "#f8b6af",
+          "#ffdfd8"
+        ]
+      },
+      "static-grey": {
+        "role": "neutral",
+        "displayName": "Static Grey",
+        "canonical": "#a3b0a6",
+        "tonalRamp": [
+          "#080d09",
+          "#202722",
+          "#3c453e",
+          "#59655c",
+          "#7a867d",
+          "#9ea8a0",
+          "#c3ccc5",
+          "#e9f1eb"
+        ]
+      },
+      "plate-rule": {
+        "role": "neutral",
+        "displayName": "Plate Rule",
+        "canonical": "#303a32",
+        "tonalRamp": [
+          "#080c09",
+          "#212722",
+          "#3c443e",
+          "#5a645c",
+          "#7b867d",
+          "#9ea8a0",
+          "#c3ccc5",
+          "#e9f1eb"
+        ]
+      },
+      "strong-rule": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#415044",
+        "tonalRamp": [
+          "#070d08",
+          "#1f2820",
+          "#3a463c",
+          "#57665a",
+          "#78877b",
+          "#9ba99e",
+          "#c1cdc3",
+          "#e7f2e9"
+        ]
+      },
+      "hatch-edge": {
+        "role": "neutral",
+        "displayName": "Hatch Edge",
+        "canonical": "#56665a",
+        "tonalRamp": [
+          "#070d08",
+          "#1e2821",
+          "#39463c",
+          "#57665a",
+          "#77877b",
+          "#9ba99f",
+          "#c1cdc3",
+          "#e7f2ea"
+        ]
+      },
+      "document-paper": {
+        "role": "neutral",
+        "displayName": "Document Paper",
+        "canonical": "#d6dbd0",
+        "tonalRamp": [
+          "#0a0c08",
+          "#242620",
+          "#40433c",
+          "#5f635a",
+          "#80847b",
+          "#a3a79e",
+          "#c7cac3",
+          "#edf0e9"
+        ]
+      },
+      "document-paper-2": {
+        "role": "neutral",
+        "displayName": "Document Paper Shade",
+        "canonical": "#c8cec1",
+        "tonalRamp": [
+          "#0a0c07",
+          "#232620",
+          "#40443b",
+          "#5e6359",
+          "#7f8479",
+          "#a2a79d",
+          "#c7cbc2",
+          "#ecf0e8"
+        ]
+      },
+      "document-ink": {
+        "role": "neutral",
+        "displayName": "Document Ink",
+        "canonical": "#1a211c",
+        "tonalRamp": [
+          "#090c0a",
+          "#222623",
+          "#3e443f",
+          "#5c635e",
+          "#7d857f",
+          "#a0a7a2",
+          "#c5cbc6",
+          "#ebf0ec"
+        ]
+      },
+      "document-ink-2": {
+        "role": "neutral",
+        "displayName": "Document Ink Muted",
+        "canonical": "#4d574f",
+        "tonalRamp": [
+          "#080c09",
+          "#212722",
+          "#3d443e",
+          "#5b645c",
+          "#7b857d",
+          "#9fa8a0",
+          "#c4ccc5",
+          "#eaf0eb"
+        ]
+      },
+      "phosphor-wash": {
+        "role": "primary",
+        "displayName": "Phosphor Wash",
+        "canonical": "rgb(159 227 178 / 0.09)",
+        "tonalRamp": [
+          "#001102",
+          "#022e14",
+          "#1a4e2d",
+          "#337048",
+          "#559268",
+          "#7fb48e",
+          "#a9d6b5",
+          "#d4fadd"
+        ]
+      },
+      "phosphor-line": {
+        "role": "primary",
+        "displayName": "Phosphor Line",
+        "canonical": "rgb(159 227 178 / 0.35)",
+        "tonalRamp": [
+          "#001102",
+          "#022e14",
+          "#1a4e2d",
+          "#337048",
+          "#559268",
+          "#7fb48e",
+          "#a9d6b5",
+          "#d4fadd"
+        ]
+      },
+      "brass-wash": {
+        "role": "secondary",
+        "displayName": "Brass Wash",
+        "canonical": "rgb(214 180 106 / 0.1)",
+        "tonalRamp": [
+          "#160800",
+          "#342100",
+          "#563e00",
+          "#795c10",
+          "#9c7e39",
+          "#bca268",
+          "#dec695",
+          "#ffecc4"
+        ]
+      },
+      "signal-red-wash": {
+        "role": "tertiary",
+        "displayName": "Signal Red Wash",
+        "canonical": "rgb(215 125 117 / 0.1)",
+        "tonalRamp": [
+          "#200001",
+          "#441110",
+          "#6b2b27",
+          "#944641",
+          "#b96861",
+          "#d98e87",
+          "#f8b6af",
+          "#ffdfd8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Single greeting heading on Overview."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles, task detail titles, paper sheet title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Task titles in cards, archive entries."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and narrative; paper text caps at 68ch."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Sidebar items and stage names."
+      },
+      "terminal": {
+        "displayName": "Terminal",
+        "purpose": "Terminal lines, prompt, paper body copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Panel headers, metadata keys, badges, statuses, toast levels; never an eyebrow."
+      }
+    },
+    "shadows": [],
+    "textures": [
+      {
+        "name": "hatch",
+        "value": "repeating-linear-gradient(-45deg, #4a584d 0 3px, #0d100d 3px 7px)",
+        "purpose": "Redaction bar: the single lock texture. Must read >=2:1 against its plate. Border 1px hatch-edge at rest, phosphor-line while revealing."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for entrances and reveals."
+      },
+      {
+        "name": "t-fast",
+        "value": "140ms",
+        "purpose": "Hover, border and colour state transitions."
+      },
+      {
+        "name": "t-med",
+        "value": "320ms",
+        "purpose": "Page-in, toast-in, banner scrim."
+      },
+      {
+        "name": "a-line-in",
+        "value": "line-in 260ms var(--ease-out) both",
+        "purpose": "New terminal line: fade in from 4px left."
+      },
+      {
+        "name": "a-caret-blink",
+        "value": "caret-blink 1.06s steps(1) infinite",
+        "purpose": "Terminal block caret; prompt caret only while focused. Static under motion off."
+      },
+      {
+        "name": "a-unredact",
+        "value": "unredact 620ms var(--ease-out) 120ms forwards",
+        "purpose": "Unlock: hatch bar clip-path wipe left to right."
+      },
+      {
+        "name": "slip",
+        "value": "slip 380ms steps(6, end) 1",
+        "purpose": "Signal slip (global .slip class): slice displacement with 1px colour split; on unlock, access change, wrong code (red via --slip-a/--slip-b)."
+      },
+      {
+        "name": "a-shake",
+        "value": "shake 320ms ease-out",
+        "purpose": "Code input row on rejected code."
+      },
+      {
+        "name": "a-scan",
+        "value": "scan 700ms var(--ease-out)",
+        "purpose": "Access banner top bar draws left to right."
+      },
+      {
+        "name": "a-page-in",
+        "value": "page-in var(--t-med) var(--ease-out)",
+        "purpose": "Route change and banner scrim entrance."
+      },
+      {
+        "name": "a-toast-in",
+        "value": "toast-in var(--t-med) var(--ease-out)",
+        "purpose": "Toast entrance."
+      },
+      {
+        "name": "motion-off",
+        "value": "[data-motion='off'] -> animation/transition 0.001ms",
+        "purpose": "Kills all motion; set from user setting or prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "1100px"
+      },
+      {
+        "name": "rail-collapse",
+        "value": "860px"
+      },
+      {
+        "name": "narrow",
+        "value": "560px"
+      },
+      {
+        "name": "phone",
+        "value": "480px"
+      }
+    ],
+    "layout": {
+      "topbarHeight": "48px",
+      "sidebarWidth": "232px",
+      "pageMaxWidth": "1320px"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one phosphor action per panel: open task, submit.",
+      "html": "<button class=\"ds-btn-primary\">OPEN TASK <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border:0;border-radius:2px;background:#9fe3b2;color:#0f1a12;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;font-weight:500;letter-spacing:.08em;cursor:pointer;transition:background 140ms,gap 140ms}.ds-btn-primary:hover{background:#b6ecc5;gap:12px}.ds-btn-primary:focus-visible{outline:1px solid #9fe3b2;outline-offset:2px}"
+    },
+    {
+      "name": "Code Input",
+      "kind": "input",
+      "refersTo": "code-input",
+      "description": "Code entry well with joined submit segment.",
+      "html": "<form class=\"ds-code\"><input class=\"ds-code-input\" placeholder=\"Введите код\"><button class=\"ds-code-submit\" type=\"button\">SUBMIT</button></form>",
+      "css": ".ds-code{display:flex;width:360px;border:1px solid #415044;border-radius:2px;background:#101310;transition:border-color 140ms}.ds-code:focus-within{border-color:#9fe3b2}.ds-code-input{flex:1;min-width:0;height:48px;padding:0 16px;border:0;outline:none;background:transparent;color:#dce5dc;font-family:'Golos Text',system-ui,sans-serif;font-size:18px;letter-spacing:.14em;text-transform:uppercase}.ds-code-input::placeholder{color:#808c82;letter-spacing:.04em;text-transform:none;font-size:14px}.ds-code-submit{padding:0 20px;border:0;border-left:1px solid #415044;background:#9fe3b2;color:#0f1a12;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;font-weight:500;letter-spacing:.08em;cursor:pointer;transition:background 140ms}.ds-code-submit:hover{background:#b6ecc5}"
+    },
+    {
+      "name": "Status Badges",
+      "kind": "chip",
+      "refersTo": "badge-active",
+      "description": "Square-dot status chips by tone.",
+      "html": "<span class=\"ds-badge ds-badge-active\"><i></i>ACTIVE</span> <span class=\"ds-badge ds-badge-pending\"><i></i>RESTRICTED</span> <span class=\"ds-badge ds-badge-error\"><i></i>CLASSIFIED</span> <span class=\"ds-badge ds-badge-muted\"><i></i>LOCKED</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 8px;border:1px solid currentColor;border-radius:2px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.ds-badge i{width:5px;height:5px;background:currentColor}.ds-badge-active{color:#9fe3b2;background:rgb(159 227 178/.09);border-color:rgb(159 227 178/.35)}.ds-badge-pending{color:#d6b46a;background:rgb(214 180 106/.1);border-color:rgb(214 180 106/.35)}.ds-badge-error{color:#d77d75;background:rgb(215 125 117/.1);border-color:rgb(215 125 117/.4)}.ds-badge-muted{color:#859187;border-color:#303a32}.ds-badge-muted i{background:transparent;border:1px solid currentColor}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Field-plate container with a 36px mono header strip.",
+      "html": "<section class=\"ds-panel\"><header class=\"ds-panel-head\"><span>CURRENT TASK</span><span>STAGE 01</span></header><div class=\"ds-panel-body\"><h3>Вводный брифинг</h3><p>Ознакомиться с вводными материалами операции.</p></div></section>",
+      "css": ".ds-panel{width:360px;background:#171d18;border:1px solid #303a32;border-radius:2px;color:#dce5dc;font-family:'Golos Text',system-ui,sans-serif;font-size:14px}.ds-panel-head{display:flex;justify-content:space-between;align-items:center;min-height:36px;padding:0 16px;border-bottom:1px solid #303a32;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:.08em;color:#859187}.ds-panel-body{padding:16px;display:grid;gap:12px}.ds-panel-body h3{margin:0;font-size:18px;font-weight:600}.ds-panel-body p{margin:0;color:#859187;line-height:1.5}"
+    },
+    {
+      "name": "Navigation Rail",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Left rail items with a 1px phosphor tick when active.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-active\" href=\"#\">OVERVIEW</a><a class=\"ds-nav-item\" href=\"#\">CASE FILES<span>1/3</span></a><a class=\"ds-nav-item\" href=\"#\">FIELD TASKS<span class=\"hot\">1 NEW</span></a></nav>",
+      "css": ".ds-nav{width:232px;padding:12px 0;background:#171d18;border-right:1px solid #303a32}.ds-nav-item{position:relative;display:flex;align-items:center;justify-content:space-between;height:42px;padding:0 20px;color:#859187;text-decoration:none;font-family:'Golos Text',system-ui,sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.06em;transition:color 140ms,background 140ms}.ds-nav-item span{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px}.ds-nav-item span.hot{color:#9fe3b2}.ds-nav-item:hover,.ds-nav-active{color:#dce5dc;background:#1d251f}.ds-nav-active::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:#9fe3b2}.ds-nav-item:focus-visible{outline:1px solid #9fe3b2;outline-offset:-2px}"
+    },
+    {
+      "name": "Terminal",
+      "kind": "custom",
+      "refersTo": "terminal",
+      "description": "Signature spine: timestamped mono lines and a live prompt.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-head\"><span>SYSTEM TERMINAL</span><b>ONLINE</b></div><div class=\"ds-term-screen\"><div><i>15:49:22</i><em>·</em><span>Агент: МУСЯ</span></div><div class=\"ok\"><i>15:49:22</i><em>+</em><span>Система готова к работе.</span></div><div><i>15:49:24</i><em>·</em><span>Получено новое задание: T-01.<u></u></span></div></div><div class=\"ds-term-prompt\">musya@op01 ~ $</div></div>",
+      "css": ".ds-term{width:560px;background:#101310;border:1px solid #303a32;border-radius:2px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#dce5dc}.ds-term-head{display:flex;justify-content:space-between;align-items:center;height:36px;padding:0 16px;background:#171d18;border-bottom:1px solid #303a32;font-size:11px;letter-spacing:.08em}.ds-term-head b{font-weight:400;color:#9fe3b2}.ds-term-screen{padding:16px;line-height:1.65}.ds-term-screen div{display:grid;grid-template-columns:auto 1.4ch 1fr;column-gap:12px}.ds-term-screen i{font-style:normal;font-size:12.5px;color:#808c82}.ds-term-screen em{font-style:normal;color:#808c82;text-align:center}.ds-term-screen .ok span,.ds-term-screen .ok em{color:#9fe3b2}.ds-term-screen u{display:inline-block;width:.62em;height:1.1em;margin-left:4px;vertical-align:-.18em;background:#9fe3b2;animation:ds-caret 1.06s steps(1) infinite}@keyframes ds-caret{0%,49%{opacity:1}50%,100%{opacity:0}}.ds-term-prompt{min-height:48px;display:flex;align-items:center;padding:0 16px;border-top:1px solid #303a32;color:#9fe3b2}"
+    },
+    {
+      "name": "Redaction Bar",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The single lock vocabulary: hatch sized to the hidden text; wipes off on unlock.",
+      "html": "<p class=\"ds-redact-demo\">FILE <span class=\"ds-redacted\" style=\"width:14ch\"></span> &nbsp; <span class=\"ds-reveal\">OPERATION_BRIEF.txt<span class=\"ds-reveal-bar\"></span></span></p>",
+      "css": ".ds-redact-demo{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#dce5dc;background:#171d18;padding:16px}.ds-redacted{display:inline-block;height:1em;vertical-align:-.12em;background:repeating-linear-gradient(-45deg,#4a584d 0 3px,#0d100d 3px 7px);border:1px solid #56665a}.ds-reveal{position:relative;display:inline-block}.ds-reveal-bar{position:absolute;inset:-1px;background:repeating-linear-gradient(-45deg,#4a584d 0 3px,#0d100d 3px 7px);border:1px solid rgb(159 227 178/.35);animation:ds-unredact 620ms cubic-bezier(.16,1,.3,1) 600ms infinite alternate}@keyframes ds-unredact{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 100%)}}"
+    },
+    {
+      "name": "Stage Strip",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Five-cell progress routing strip; locked stage names are redacted.",
+      "html": "<ol class=\"ds-stages\"><li class=\"act\"><b>01</b><span>INITIALIZATION</span><small>ACTIVE</small></li><li><b>02</b><span class=\"h\"></span><small>LOCKED</small></li><li><b>03</b><span class=\"h\"></span><small>LOCKED</small></li></ol>",
+      "css": ".ds-stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,180px);border:1px solid #303a32;border-radius:2px;background:#171d18;color:#dce5dc}.ds-stages li{position:relative;display:grid;grid-template-columns:auto 1fr;grid-template-areas:'c n' 'c s';column-gap:12px;row-gap:2px;padding:16px 16px 12px}.ds-stages li+li{border-left:1px solid #303a32}.ds-stages b{grid-area:c;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:22px;font-weight:400;line-height:1;color:#808c82}.ds-stages span{grid-area:n;font-family:'Golos Text',system-ui,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.06em}.ds-stages span.h{height:1em;width:9ch;background:repeating-linear-gradient(-45deg,#4a584d 0 3px,#0d100d 3px 7px);border:1px solid #56665a}.ds-stages small{grid-area:s;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;color:#808c82}.ds-stages .act{background:rgb(159 227 178/.09);box-shadow:inset 0 2px 0 #9fe3b2}.ds-stages .act b,.ds-stages .act small{color:#9fe3b2}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Redacted Dossier",
+    "overview": "**Creative North Star: \"The Redacted Dossier\"**\n\nThe console is a working instrument issued to one operative, not a game screen. Graphite plates sit edge to edge, divided by single hairline rules; nothing floats, nothing glows. The terminal is the spine of the main view and the tallest object on it. Everything else (task, equipment, files, stages) is filed around it like sheets in a folder.\n\nLocking has one visual voice: the redaction bar. A locked title, item, filename or stage is replaced by a diagonal hatch of the same width as the hidden text. Unlocking wipes the bar off left to right and the revealed text twitches once with a signal slip. A rejected code gets the same slip in red. That single vocabulary carries the whole progression story; there is no second lock metaphor.\n\nPhosphor green is rationed to the things that are live: the caret, the active stage, focus, success, the primary action. Density is that of a real tool: small mono captions, tabular numerals, 1px rules, tight 2px corners. Narrative text is Russian; system labels and statuses are English uppercase mono.",
+    "keyCharacteristics": [
+      "Flat graphite plates, depth by tone and 1px rules only",
+      "Phosphor accent only on live state",
+      "Redaction hatch as the single lock vocabulary, with an unredact wipe on unlock",
+      "Golos Text for interface, JetBrains Mono for system voice",
+      "Event-tied motion only, fully disableable"
+    ],
+    "rules": [
+      {
+        "name": "The Pinned Palette Rule",
+        "body": "The palette is fixed by the brief. Every hue on screen comes from the tokens above or an alpha of them; no off-palette hues, no new accents, no gradients beyond the hatch.",
+        "section": "colors"
+      },
+      {
+        "name": "The Live Phosphor Rule",
+        "body": "Phosphor marks what is live or actionable now. If an element is not current, focused, successful or the primary action, it is not green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Faint Plate Rule",
+        "body": "Faint sage stays off raised-plate surfaces (4.48:1 there). On raised plates, use muted sage or dossier text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Golos speaks to the operative; JetBrains Mono is the machine. Codes, IDs, filenames, timestamps and statuses are always mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caption Is Metadata Rule",
+        "body": "The 11px uppercase mono caption labels data (a field key, a panel name, a status). It never sits above a heading as an eyebrow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Separation is a 1px rule or a tone step, never a shadow or glow. If something needs to stand out, give it a 1px edge or a plate tone.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Hatch Rule",
+        "body": "The redaction hatch (a -45deg repeating stripe, 3px light / 4px dark) is the only lock texture. Locked titles, items, filenames, stages and locked empty states all use it, sized to the text they hide, and it must read at ≥2:1 against the plate it sits on.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do separate every surface with a 1px plate rule or a tone step (ground, field plate, raised plate).",
+      "Do use the redaction hatch for every locked thing, sized to the text it hides, at ≥2:1 against its plate.",
+      "Do reserve phosphor for caret, active stage, focus, success and the primary action.",
+      "Do tie motion to events: line-in on new terminal lines, the caret, the unredact wipe, and the signal slip on unlock, access change or wrong code.",
+      "Do disable all animation and transition under `[data-motion='off']` (set from the user setting or `prefers-reduced-motion`), leaving the caret visible and static.",
+      "Do reference shared keyframes from CSS Modules through the `--a-*` custom properties (`--a-unredact`, `--a-line-in`, `--a-caret-blink`, `--a-page-in`, `--a-toast-in`, `--a-scan`, `--a-shake`), because CSS Modules localize keyframe names; use the global `.slip` class for the signal slip.",
+      "Do set codes, IDs, filenames, timestamps and statuses in JetBrains Mono.",
+      "Do draw pictograms as inline SVG on a 24px grid with a 1.5 stroke and square caps."
+    ],
+    "donts": [
+      "Don't use drop shadows or glows; use a 1px edge.",
+      "Don't introduce hues outside the pinned palette, or gradients other than the hatch.",
+      "Don't set faint sage text on raised-plate surfaces.",
+      "Don't hide locked content with blur, opacity fades or overlays; the hatch is the lock (a lock pictogram may label a locked empty state, always with the hatch).",
+      "Don't run ambient or looping motion beyond the focused caret; no constant flicker.",
+      "Don't put an uppercase mono caption above a heading as an eyebrow.",
+      "Don't round corners beyond 2px or use circular dots."
+    ]
+  }
+}

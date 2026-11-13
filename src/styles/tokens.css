@@ -1,0 +1,60 @@
+:root {
+  /* Palette (brief-pinned) */
+  --c-ground: #101310;
+  --c-surface: #171d18;
+  --c-surface-2: #1d251f;
+  --c-surface-3: #232d26;
+  --c-text: #dce5dc;
+  --c-text-2: #859187;
+  --c-text-3: #808c82; /* ≥4.5:1 on ground and surface */
+  --c-accent: #9fe3b2;
+  --c-accent-ink: #0f1a12;
+  --c-accent-wash: rgb(159 227 178 / 0.09);
+  --c-accent-line: rgb(159 227 178 / 0.35);
+  --c-warning: #d6b46a;
+  --c-warning-wash: rgb(214 180 106 / 0.1);
+  --c-error: #d77d75;
+  --c-error-wash: rgb(215 125 117 / 0.1);
+  --c-unknown: #a3b0a6; /* UNKNOWN events: neutral, distinguished by its ? mark */
+  --c-border: #303a32;
+  --c-border-strong: #415044;
+
+  /* Paper (document viewer) */
+  --c-paper: #d6dbd0;
+  --c-paper-2: #c8cec1;
+  --c-ink: #1a211c;
+  --c-ink-2: #4d574f;
+  --c-ink-stamp: #8a3a33; /* classification marking on paper only */
+
+  /* Redaction hatch */
+  --hatch: repeating-linear-gradient(-45deg, #4a584d 0 3px, #0d100d 3px 7px);
+
+  /* Type */
+  --f-ui: 'Golos Text', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --fs-cap: 11px;
+  --fs-sm: 12.5px;
+  --fs-body: 14px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-display: clamp(26px, 2.4vw, 34px);
+  --tr-cap: 0.08em;
+
+  /* Space */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+
+  --r: 2px;
+  --topbar-h: 48px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 140ms;
+  --t-med: 320ms;
+}

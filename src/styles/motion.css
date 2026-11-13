@@ -1,0 +1,112 @@
+/*
+ * Motion grammar. Everything here is disabled under [data-motion='off'],
+ * which the app sets from the user setting or prefers-reduced-motion.
+ */
+
+@keyframes line-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Unredaction: the hatch bar wipes off left to right. */
+@keyframes unredact {
+  0% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+
+/* Signal slip: brief horizontal slice displacement with a 1px colour split. */
+@keyframes slip {
+  0% { transform: none; clip-path: inset(0 0 0 0); text-shadow: none; }
+  15% { transform: translateX(-3px); clip-path: inset(10% 0 55% 0); text-shadow: 2px 0 var(--slip-a, var(--c-accent)), -2px 0 var(--slip-b, var(--c-error)); }
+  30% { transform: translateX(3px); clip-path: inset(60% 0 8% 0); }
+  45% { transform: translateX(-1px); clip-path: inset(30% 0 35% 0); }
+  60% { transform: translateX(2px); clip-path: inset(0 0 0 0); text-shadow: 1px 0 var(--slip-a, var(--c-accent)), -1px 0 var(--slip-b, var(--c-error)); }
+  100% { transform: none; clip-path: inset(0 0 0 0); text-shadow: none; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: none; }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes scan {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+:root {
+  --a-unredact: unredact 620ms var(--ease-out) 120ms forwards;
+  --a-line-in: line-in 260ms var(--ease-out) both;
+  --a-caret-blink: caret-blink 1.06s steps(1) infinite;
+  --a-page-in: page-in var(--t-med) var(--ease-out);
+  --a-toast-in: toast-in var(--t-med) var(--ease-out);
+  --a-scan: scan 700ms var(--ease-out);
+  --a-shake: shake 320ms ease-out;
+}
+
+.slip { animation: slip 380ms steps(6, end) 1; }
+.page-in { animation: page-in var(--t-med) var(--ease-out); }
+
+[data-motion='off'] *, [data-motion='off'] *::before, [data-motion='off'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+/* Keep the caret visible but static when motion is off. */
+[data-motion='off'] .caret { animation: none !important; opacity: 1 !important; }
+
+/*
+ * Timed alarm. "freeze": the console hangs — every animation (caret included) stops mid-frame,
+ * the pointer turns to wait and nothing responds. "on": the console stays still under the alarm.
+ */
+[data-alarm='freeze'] body { cursor: wait; }
+[data-alarm='freeze'] #root *,
+[data-alarm='freeze'] #root *::before,
+[data-alarm='freeze'] #root *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+  pointer-events: none !important;
+}
+[data-alarm='on'] #root .caret,
+[data-alarm='hold'] #root .caret { animation-play-state: paused !important; }
+
+/* Breach: the frozen console itself jumps, splits colour and drops slices. */
+[data-alarm='breach'] body { cursor: wait; }
+[data-alarm='breach'] #root {
+  pointer-events: none;
+  animation: breach-jolt 1.3s steps(1) infinite;
+}
+[data-alarm='breach'] #root * { animation-play-state: paused !important; transition: none !important; }
+@keyframes breach-jolt {
+  0% { transform: none; clip-path: none; text-shadow: none; }
+  6% { transform: translateX(-8px); clip-path: inset(12% 0 58% 0); text-shadow: 3px 0 var(--c-error), -3px 0 var(--c-accent); }
+  9% { transform: none; clip-path: none; text-shadow: none; }
+  21% { transform: translate(5px, 2px); text-shadow: -2px 0 var(--c-error), 2px 0 var(--c-warning); }
+  25% { transform: none; text-shadow: none; }
+  38% { transform: translateX(14px) skewX(-3deg); }
+  41% { transform: none; }
+  55% { transform: translateX(-12px); clip-path: inset(40% 0 28% 0); text-shadow: 4px 0 var(--c-error); }
+  59% { transform: none; clip-path: none; text-shadow: none; }
+  72% { transform: translateY(-4px); opacity: 0.5; }
+  75% { transform: none; opacity: 1; }
+  87% { transform: translateX(9px); clip-path: inset(68% 0 6% 0); text-shadow: -3px 0 var(--c-accent), 3px 0 var(--c-error); }
+  91% { transform: none; clip-path: none; text-shadow: none; }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "session-1794534442230",
+  "startedAt": "2026-11-13T01:47:22.230Z",
+  "cwd": "/Users/olegsv/Projects/spy-assistant",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-reply-in-russian-----0",
+      "insight-1794534436854-lxo3"
+    ]
+  },
+  "metrics": {
+    "edits": 4,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-11-13T05:36:58.331Z"
+}

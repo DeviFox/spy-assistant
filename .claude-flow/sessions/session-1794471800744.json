@@ -1,0 +1,14 @@
+{
+  "id": "session-1794471800744",
+  "startedAt": "2026-11-12T08:23:20.744Z",
+  "cwd": "/Users/olegsv/Projects/spy-assistant",
+  "context": {},
+  "metrics": {
+    "edits": 3,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-11-12T10:25:25.283Z",
+  "duration": 7324544
+}
