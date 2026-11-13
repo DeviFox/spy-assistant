@@ -34,7 +34,7 @@ export const documents: CaseDocument[] = [
       { kind: 'heading', text: 'Анастасия' },
       {
         kind: 'fields',
-        photo: { src: '/images.jpeg', caption: 'Фото агента' },
+        photo: { src: `${import.meta.env.BASE_URL}images.jpeg`, caption: 'Фото агента' },
         rows: [
           ['Дата рождения', 'Засекречено'],
           ['Гражданство', 'Засекречено'],

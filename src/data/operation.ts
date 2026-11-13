@@ -6,7 +6,7 @@ export const operation: Operation = {
   title: 'OPERATION 01',
   codename: 'MUSYA.exe',
   operative: 'МУСЯ',
-  avatar: '/images.jpeg',
+  avatar: `${import.meta.env.BASE_URL}images.jpeg`,
   version: 'v0.1.0',
   session: '001',
   stages: [

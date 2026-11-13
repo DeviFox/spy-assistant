@@ -18,7 +18,7 @@ export const archiveEntries: ArchiveEntry[] = [
     title: 'Изображение 01',
     description: 'Материалы дела агента.',
     media: 'IMAGE',
-    src: '/agent_docs_table.jpg',
+    src: `${import.meta.env.BASE_URL}agent_docs_table.jpg`,
     locked: true,
   },
   {
