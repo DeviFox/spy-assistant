@@ -57,7 +57,11 @@
   padding: var(--s-2) var(--s-4);
   border-bottom: 1px solid var(--c-border);
 }
-.matList + .matHead { border-top: 1px solid var(--c-border); }
+.matList + .matHead, .matTop { border-top: 1px solid var(--c-border); }
+.asset { display: grid; gap: var(--s-1); margin: 0; padding: var(--s-3) var(--s-4); font-family: var(--f-mono); font-size: var(--fs-cap); letter-spacing: var(--tr-cap); }
+.asset div { display: flex; justify-content: space-between; gap: var(--s-3); }
+.asset dt { color: var(--c-text-2); }
+.asset dd { margin: 0; }
 .matLabel { font-family: var(--f-mono); font-size: var(--fs-cap); font-weight: 500; letter-spacing: var(--tr-cap); color: var(--c-text-2); }
 .matList { list-style: none; margin: 0; padding: 0; }
 .matList li + li { border-top: 1px solid var(--c-border); }

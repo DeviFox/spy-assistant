@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { useOperation } from '../../store/operationStore';
+import { useEffect, useState } from 'react';
 import { glitchBurst } from '../../features/alarm/siren';
 import type { Alarm } from '../../types';
 import { Icon } from '../common/Icon';
@@ -16,17 +15,12 @@ let n = 0;
  * The breach: the frozen console tears apart. Error windows pile up across the screen,
  * horizontal bands slip, the picture drops out for a frame, and it ends on a black
  * "access request" card that hands over to the countdown.
- * Under motion off only the error windows appear, without tears or blackouts.
  */
 export function Breach({ alarm }: { alarm: Alarm }) {
-  const sound = useOperation((st) => st.sound);
-  const motion = document.documentElement.dataset.motion !== 'off';
   const [pops, setPops] = useState<Pop[]>([]);
   const [tears, setTears] = useState<Tear[]>([]);
   const [black, setBlack] = useState(false);
   const [handover, setHandover] = useState(false);
-  const soundRef = useRef(sound);
-  soundRef.current = sound;
 
   useEffect(() => {
     const total = alarm.breachMs;
@@ -52,35 +46,32 @@ export function Breach({ alarm }: { alarm: Alarm }) {
           message,
           warn: Math.random() < 0.3,
           // Some windows smear into a trail, like a hung window being dragged.
-          echoes: motion && Math.random() < 0.35 ? 3 + Math.floor(Math.random() * 4) : 0,
+          echoes: Math.random() < 0.35 ? 3 + Math.floor(Math.random() * 4) : 0,
         },
       ]);
-      if (soundRef.current) glitchBurst(0.6 + p * 0.6);
+      glitchBurst(0.6 + p * 0.6);
       timers.push(window.setTimeout(spawn, rnd(420, 560) * (1 - p * 0.7)));
     };
     spawn();
 
     // Tears and dropouts.
-    let ticker = 0;
-    if (motion) {
-      ticker = window.setInterval(() => {
-        const p = progress();
-        if (p >= 1) return;
-        const count = Math.random() < 0.35 + p * 0.4 ? 1 + Math.floor(Math.random() * (2 + p * 4)) : 0;
-        setTears(
-          Array.from({ length: count }, () => ({
-            id: n++,
-            top: rnd(0, 98),
-            h: Math.random() < 0.4 ? 1 : rnd(4, 26 + p * 40),
-            dx: rnd(-60, 60),
-            kind: (['hatch', 'line', 'plate', 'red'] as const)[Math.floor(Math.random() * 4)],
-          })),
-        );
-        const drop = Math.random() < 0.04 + p * 0.1;
-        setBlack(drop);
-        if (drop && soundRef.current) glitchBurst(1.2);
-      }, 70);
-    }
+    const ticker = window.setInterval(() => {
+      const p = progress();
+      if (p >= 1) return;
+      const count = Math.random() < 0.35 + p * 0.4 ? 1 + Math.floor(Math.random() * (2 + p * 4)) : 0;
+      setTears(
+        Array.from({ length: count }, () => ({
+          id: n++,
+          top: rnd(0, 98),
+          h: Math.random() < 0.4 ? 1 : rnd(4, 26 + p * 40),
+          dx: rnd(-60, 60),
+          kind: (['hatch', 'line', 'plate', 'red'] as const)[Math.floor(Math.random() * 4)],
+        })),
+      );
+      const drop = Math.random() < 0.04 + p * 0.1;
+      setBlack(drop);
+      if (drop) glitchBurst(1.2);
+  }, 70);
 
     timers.push(
       window.setTimeout(() => {
@@ -93,7 +84,7 @@ export function Breach({ alarm }: { alarm: Alarm }) {
       timers.forEach((t) => window.clearTimeout(t));
       window.clearInterval(ticker);
     };
-  }, [alarm, motion]);
+  }, [alarm]);
 
   return (
     <div className={s.breach} aria-hidden={handover ? undefined : 'true'}>

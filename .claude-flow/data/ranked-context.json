@@ -1,14 +1,47 @@
 {
   "version": 1,
-  "computedAt": 1794550902504,
+  "computedAt": 1794555426997,
   "entries": [
+    {
+      "id": "insight-1794555426995-r47g",
+      "content": "File /Users/olegsv/Projects/spy-assistant/src/components/alarm/AlarmEvent.tsx was edited 3 times this session — likely a hot path worth monitoring.",
+      "summary": "Frequently edited: AlarmEvent.tsx (3x)",
+      "category": "insights",
+      "confidence": 0.55,
+      "pageRank": 0.48051944112467226,
+      "accessCount": 1,
+      "words": [
+        "file",
+        "users",
+        "olegsv",
+        "projects",
+        "spy-assistant",
+        "src",
+        "components",
+        "alarm",
+        "alarmevent",
+        "tsx",
+        "edited",
+        "times",
+        "session",
+        "likely",
+        "hot",
+        "path",
+        "worth",
+        "monitoring",
+        "frequently",
+        "edited",
+        "alarmevent",
+        "tsx"
+      ]
+    },
     {
       "id": "mem-reply-in-russian-----0",
       "content": "name: reply-in-russian\ndescription: User wants all chat replies in Russian\nmetadata:\n  node_type: memory\n  type: feedback\n  originSessionId: a8860216-13a3-46e8-874b-3855d9768f75\n  modified: 2026-11-12T13:28:12.027Z\n---\n\nОтвечать пользователю на русском языке.\n\n**Why:** пользователь прямо попросил («на русском отвечай») во время /impeccable critique, 2026-11-12.\n**How to apply:** все ответы в чате, отчёты и вопросы через AskUserQuestion — на русском; код, идентификаторы и UI-лейблы проекта (EN) …",
       "summary": "---",
       "category": "reply-in-russian",
       "confidence": 0.55,
-      "pageRank": 0.5,
+      "pageRank": 0.25974027943766376,
       "accessCount": 1,
       "words": [
         "name",
@@ -48,7 +81,7 @@
       "summary": "Frequently edited: run.cjs (3x)",
       "category": "insights",
       "confidence": 0.55,
-      "pageRank": 0.5,
+      "pageRank": 0.25974027943766376,
       "accessCount": 1,
       "words": [
         "file",

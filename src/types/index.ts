@@ -79,7 +79,7 @@ export type EquipmentStatus = 'locked' | 'found';
 export type IconName =
   | 'flashlight' | 'key' | 'decoder' | 'magnet'
   | 'overview' | 'files' | 'tasks' | 'equipment' | 'archive'
-  | 'lock' | 'alert' | 'image' | 'audio' | 'video' | 'text' | 'log' | 'arrow' | 'close' | 'menu' | 'hint' | 'check';
+  | 'lock' | 'alert' | 'image' | 'audio' | 'video' | 'text' | 'log' | 'arrow' | 'close' | 'menu' | 'hint' | 'check' | 'gift';
 
 export interface Equipment {
   id: string;
@@ -101,7 +101,8 @@ export type DocumentBlock =
   /** With `photo`, the portrait sits beside the table, like a pasted photo in a paper file. */
   | { kind: 'fields'; rows: [string, string][]; photo?: { src: string; caption: string } }
   /** `frame` styles real images on paper: a pasted photo or a full-width attached scan. */
-  | { kind: 'media'; media: MediaType; caption: string; src?: string; frame?: 'photo' | 'scan' };
+  /** `stencil` adds a full-screen mode with adjustable scale, for laying a paper stencil over the screen. */
+  | { kind: 'media'; media: MediaType; caption: string; src?: string; frame?: 'photo' | 'scan'; stencil?: boolean };
 
 export interface CaseDocument {
   id: string;

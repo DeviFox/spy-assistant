@@ -185,6 +185,11 @@ export function lockdownTone() {
   o.stop(t + dur + 0.02);
   window.setTimeout(() => out.disconnect(), (1.16 + dur + 0.3) * 1000);
 }
+/** Finale: a rising arpeggio that settles on a held chord. */
+export const declassifyTone = () => {
+  [523.3, 659.3, 784, 1046.5].forEach((f, i) => tone(f, i * 0.11, 0.16, 0.05, 'triangle'));
+  [523.3, 784, 1046.5].forEach((f) => tone(f, 0.5, 1.4, 0.035, 'triangle'));
+};
 /** Two rising blips: answer accepted. */
 export const grantedTone = () => {
   tone(880, 0, 0.12, 0.06, 'square');

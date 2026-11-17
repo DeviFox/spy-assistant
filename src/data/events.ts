@@ -20,9 +20,9 @@ export const systemEvents: SystemEvent[] = [
     effects: [{ type: 'log', level: 'warning', message: 'Уровень доступа повышен. Новые материалы будут поступать в FILES.' }],
   },
   {
-    // Timed alarm: goes off 10 s (AL-01 delayMs) after T-03 is completed, as T-04 begins.
+    // Timed alarm: goes off 10 s (AL-01 delayMs) after the PIN task (T-05), once the dossier has arrived.
     id: 'EV-ALARM-01',
-    on: 'task:completed:T-03',
+    on: 'task:completed:T-05',
     effects: [{ type: 'armAlarm', alarm: 'AL-01' }],
   },
   {

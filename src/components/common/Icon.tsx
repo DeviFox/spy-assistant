@@ -23,6 +23,7 @@ const paths: Record<IconName, string> = {
   menu: 'M4 7h16M4 12h16M4 17h16',
   hint: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z',
   check: 'M5 12.5l4.5 4.5L19 7.5',
+  gift: 'M5 11h14v9H5zM4 8h16v3H4zM12 8v12M12 8c-1-2.5-5-3-5-1s3 1 5 1c2 0 5 0 5-1s-4-1.5-5 1',
 };
 
 export function Icon({ name, size = 18, className }: { name: IconName; size?: number; className?: string }) {

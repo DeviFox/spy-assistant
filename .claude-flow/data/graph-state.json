@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": 1794550902502,
-  "nodeCount": 2,
+  "updatedAt": 1794555426996,
+  "nodeCount": 3,
   "nodes": {
     "mem-reply-in-russian-----0": {
       "id": "mem-reply-in-russian-----0",
@@ -16,11 +16,26 @@
       "confidence": 0.55,
       "accessCount": 1,
       "createdAt": 1794534436854
+    },
+    "insight-1794555426995-r47g": {
+      "id": "insight-1794555426995-r47g",
+      "category": "insights",
+      "confidence": 0.55,
+      "accessCount": 1,
+      "createdAt": 1794555426995
     }
   },
-  "edges": [],
+  "edges": [
+    {
+      "sourceId": "insight-1794534436854-lxo3",
+      "targetId": "insight-1794555426995-r47g",
+      "type": "similar",
+      "weight": 0.39285714285714285
+    }
+  ],
   "pageRanks": {
-    "mem-reply-in-russian-----0": 0.5,
-    "insight-1794534436854-lxo3": 0.5
+    "mem-reply-in-russian-----0": 0.25974027943766376,
+    "insight-1794534436854-lxo3": 0.25974027943766376,
+    "insight-1794555426995-r47g": 0.48051944112467226
   }
 }

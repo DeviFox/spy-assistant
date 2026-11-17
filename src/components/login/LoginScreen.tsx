@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, type SyntheticEvent, type FormEvent, type 
 import { login } from '../../data/login';
 import { operation } from '../../data/operation';
 import { matchName, ruCharFor } from '../../features/login/layout';
-import { useMotionEnabled } from '../../features/operation/useMotion';
 import { useOperation } from '../../store/operationStore';
 import { StatusBadge } from '../common/StatusBadge';
 import s from './login.module.css';
@@ -11,7 +10,6 @@ type Phase = 'input' | 'loading';
 
 /** Entry gate: the operative types her name in Russian, keys mapped by physical ЙЦУКЕН position. */
 export function LoginScreen() {
-  const motion = useMotionEnabled();
   const doLogin = useOperation((st) => st.login);
   const [value, setValue] = useState('');
   const [attempts, setAttempts] = useState(0);
@@ -67,14 +65,13 @@ export function LoginScreen() {
   // Loader: advance steps, then hand over to the console.
   useEffect(() => {
     if (phase !== 'loading') return;
-    const ms = motion ? login.stepMs : 120;
     if (step < login.loaderSteps.length) {
-      const t = window.setTimeout(() => setStep((n) => n + 1), ms);
+      const t = window.setTimeout(() => setStep((n) => n + 1), login.stepMs);
       return () => window.clearTimeout(t);
     }
-    const t = window.setTimeout(() => doLogin(identity), motion ? 650 : 0);
+    const t = window.setTimeout(() => doLogin(identity), 650);
     return () => window.clearTimeout(t);
-  }, [phase, step, motion, identity, doLogin]);
+  }, [phase, step, identity, doLogin]);
 
   const hints = login.hints.filter((h) => attempts >= h.after);
   const pct = Math.round((step / login.loaderSteps.length) * 100);

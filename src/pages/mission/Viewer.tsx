@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useOperation } from '../../store/operationStore';
 import { findDocument } from '../../features/operation/engine';
 import { operation } from '../../data/operation';
@@ -6,6 +6,7 @@ import { archiveEntries } from '../../data/archive';
 import type { CaseDocument } from '../../types';
 import { MediaPlaceholder } from '../../components/common/MediaPlaceholder';
 import { Icon } from '../../components/common/Icon';
+import { StencilView } from './StencilView';
 import s from './viewer.module.css';
 
 const stamp = (ts: number) => new Date(ts).toLocaleString('ru-RU', { dateStyle: 'short', timeStyle: 'short' });
@@ -67,7 +68,10 @@ export function Viewer() {
 
 /** A document rendered as a paper sheet. */
 function Sheet({ doc }: { doc: CaseDocument }) {
+  const [stencil, setStencil] = useState<{ src: string; alt: string } | null>(null);
+  const closeStencil = useCallback(() => setStencil(null), []);
   return (
+    <>
     <article className={s.sheet} aria-label={doc.filename}>
       <header className={s.sheetHead}>
         <span>{operation.title} · {doc.id}</span>
@@ -104,8 +108,13 @@ function Sheet({ doc }: { doc: CaseDocument }) {
               if (b.src && b.media === 'IMAGE' && b.frame) {
                 return (
                   <figure key={i} className={b.frame === 'photo' ? s.photo : s.scan}>
-                    <a href={b.src} target="_blank" rel="noreferrer"><img src={b.src} alt={b.caption} /></a>
+                    <a href={b.src} target="_blank" rel="noreferrer" className={b.stencil ? `reg-marks ${s.marked}` : undefined}><img src={b.src} alt={b.caption} /></a>
                     <figcaption>{b.caption}</figcaption>
+                    {b.stencil && (
+                      <button className={s.stencilBtn} onClick={() => setStencil({ src: b.src!, alt: b.caption })}>
+                        <Icon name="arrow" size={16} /> Режим чтения
+                      </button>
+                    )}
                   </figure>
                 );
               }
@@ -118,5 +127,7 @@ function Sheet({ doc }: { doc: CaseDocument }) {
         <span>{doc.category} · {doc.type}</span>
       </footer>
     </article>
+    {stencil && <StencilView src={stencil.src} alt={stencil.alt} onClose={closeStencil} />}
+    </>
   );
 }

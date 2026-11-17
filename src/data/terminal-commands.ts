@@ -110,20 +110,7 @@ export const terminalCommands: TerminalCommand[] = [
       { level: 'system', text: `${operation.codename} ${operation.version}` },
       { level: 'info', text: '  Рабочая станция агента. Локальный сеанс.' },
       { level: 'info', text: '  Задания, документы и оборудование операции.' },
-      { level: 'system', text: '  Анимация: motion on | motion off' },
     ],
-  },
-  {
-    name: 'motion',
-    usage: 'motion on|off',
-    description: 'Включить или отключить анимацию',
-    hidden: true,
-    run: ({ args, store }) => {
-      const v = args[0]?.toLowerCase();
-      if (v !== 'on' && v !== 'off' && v !== 'system') return [{ level: 'warning', text: 'Использование: motion on | motion off | motion system' }];
-      store.setMotion(v);
-      return [{ level: 'success', text: `Анимация: ${v.toUpperCase()}` }];
-    },
   },
   {
     // Organizer-only. Not listed in help.

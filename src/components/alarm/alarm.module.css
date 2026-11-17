@@ -72,18 +72,8 @@
   color: var(--tone);
 }
 .headAside { display: inline-flex; align-items: center; gap: var(--s-3); }
-.sound {
-  height: 24px;
-  padding: 0 var(--s-2);
-  background: none;
-  border: 1px solid var(--c-border-strong);
-  border-radius: var(--r);
-  font-family: var(--f-mono);
-  font-size: var(--fs-cap);
-  letter-spacing: var(--tr-cap);
-  color: var(--c-text-2);
-}
-.sound:hover { color: var(--c-text); border-color: var(--c-text-2); }
+/* Decorative source address of the intrusion. */
+.trace { font-family: var(--f-mono); font-size: var(--fs-cap); letter-spacing: var(--tr-cap); color: var(--c-text-2); }
 
 .body { display: grid; gap: var(--s-4); padding: var(--s-6) var(--s-6) var(--s-6); }
 .title { font-size: var(--fs-xl); line-height: 1.2; }
@@ -186,4 +176,3 @@
   .digits { font-size: 64px; }
 }
 
-[data-motion='off'] .frame { animation: none; opacity: 1; }

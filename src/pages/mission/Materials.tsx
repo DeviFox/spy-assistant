@@ -14,6 +14,16 @@ export function Materials() {
   const archive = useOperation((st) => st.archive);
   const items = useOperation((st) => st.items);
   const view = useOperation((st) => st.view);
+  const granted = useOperation((st) => st.tasks['T-07']?.status === 'completed');
+  const opened = useOperation((st) => st.tasks['T-08']?.status === 'completed');
+  const extracted = useOperation((st) => Boolean(st.items['main-prize']));
+
+  // ASSET P-03: the locked case, visible from the start; it opens as the operation closes in.
+  const asset: [string, string, boolean][] = [
+    ['STATUS', extracted ? 'EXTRACTED' : opened ? 'OPEN' : 'LOCKED', opened],
+    ['SEAL', opened ? 'BROKEN' : 'INTACT', opened],
+    ['AUTHORIZATION', granted ? 'GRANTED' : 'DENIED', granted],
+  ];
 
   const files = [
     ...documents.filter((d) => docs[d.id]).map((d) => ({
@@ -27,6 +37,19 @@ export function Materials() {
   return (
     <section className={s.materials} aria-label="Материалы">
       <header className={s.matHead}>
+        <h2 className={s.matLabel}>ASSET P-03</h2>
+        <Icon name={opened ? 'check' : 'lock'} size={14} />
+      </header>
+      <dl className={s.asset}>
+        {asset.map(([k, v, ok]) => (
+          <div key={k}>
+            <dt>{k}</dt>
+            <dd key={v} className={`slip ${ok ? s.found : s.hot}`}>{v}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <header className={`${s.matHead} ${s.matTop}`}>
         <h2 className={s.matLabel}>FILES</h2>
         <span className="cap">{files.length}</span>
       </header>

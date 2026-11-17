@@ -1,0 +1,53 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #000;
+}
+/* Marks sit 24px in from the screen edge so they stay visible. */
+.frame { --reg-color: var(--c-accent); --reg-inset: 24px; padding: var(--reg-gap); }
+.img {
+  display: block;
+  height: calc(100vh - 2 * var(--reg-gap) - 2 * var(--reg-inset));
+  width: auto;
+  max-width: calc(100vw - 2 * var(--reg-gap) - 2 * var(--reg-inset));
+  object-fit: contain;
+  user-select: none;
+}
+
+/* Stays out of the way of the stencil; full strength on hover or keyboard focus. */
+.bar {
+  position: absolute;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: var(--s-1);
+  background: rgb(16 19 16 / 0.9);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r);
+  opacity: 0.35;
+  transition: opacity 0.15s;
+}
+.bar:hover, .bar:focus-within { opacity: 1; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--s-2);
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r);
+  font-family: var(--f-mono);
+  font-size: var(--fs-cap);
+  letter-spacing: var(--tr-cap);
+  color: var(--c-text);
+}
+.btn:hover { border-color: var(--c-accent); color: var(--c-accent); }

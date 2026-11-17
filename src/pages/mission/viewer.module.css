@@ -94,3 +94,24 @@
   .withPhoto { grid-template-columns: 1fr; }
   .withPhoto .photo { order: -1; width: 160px; }
 }
+
+.stencilBtn {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  height: 40px;
+  padding: 0 var(--s-4);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border: 0;
+  border-radius: var(--r);
+  font-family: var(--f-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+}
+.stencilBtn:hover { background: var(--c-ink-2); }
+
+/* Registration marks around a document meant to be overlaid: a hint, never a label. */
+.marked { display: block; --reg-color: var(--c-ink-2); padding: var(--reg-gap); }
+.marked img { border: 0; }

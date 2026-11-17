@@ -5,9 +5,9 @@ import { LoginScreen } from '../components/login/LoginScreen';
 import { MissionPage } from '../pages/mission/MissionPage';
 import { Viewer } from '../pages/mission/Viewer';
 import { Incoming } from '../pages/mission/Incoming';
+import { Finale } from '../pages/mission/Finale';
 import { AlarmEvent } from '../components/alarm/AlarmEvent';
 import { useBootSequence } from '../features/terminal/useBootSequence';
-import { useMotionEnabled } from '../features/operation/useMotion';
 import { useOperation } from '../store/operationStore';
 
 function Boot() {
@@ -16,12 +16,6 @@ function Boot() {
 }
 
 function Runtime() {
-  const motion = useMotionEnabled();
-
-  useEffect(() => {
-    document.documentElement.dataset.motion = motion ? 'on' : 'off';
-  }, [motion]);
-
   useEffect(() => {
     if (new URLSearchParams(window.location.search).has('dev')) useOperation.getState().setDevOpen(true);
   }, []);
@@ -50,6 +44,7 @@ function Console() {
       <Viewer />
       <Incoming />
       <AlarmEvent />
+      <Finale />
     </>
   );
 }

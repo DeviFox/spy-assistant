@@ -1,13 +1,8 @@
 import { operation } from '../../data/operation';
 import { StatusBadge } from '../common/StatusBadge';
-import { useOperation, type MotionPref } from '../../store/operationStore';
 import s from './layout.module.css';
 
-const nextMotion: Record<MotionPref, MotionPref> = { system: 'off', off: 'on', on: 'system' };
-
 export function TopBar() {
-  const motion = useOperation((st) => st.motion);
-  const setMotion = useOperation((st) => st.setMotion);
   return (
     <header className={s.topbar}>
       <div className={s.brand}>
@@ -17,7 +12,7 @@ export function TopBar() {
           <path d="M13 18h.01M19 18h.01" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
         </svg>
         <span className={s.name}>
-          MUSYA<span className={s.ext}>.exe</span>
+          TERMINAL<span className={s.ext}>.exe</span>
         </span>
         <span className={s.version}>{operation.version}</span>
       </div>
@@ -31,12 +26,8 @@ export function TopBar() {
           <dd>{operation.title}</dd>
         </div>
         <div className={`${s.metaItem} ${s.hideSm}`}>
-          <dt className="visually-hidden">Анимация</dt>
-          <dd>
-            <button className={s.motionBtn} onClick={() => setMotion(nextMotion[motion])} aria-label="Переключить анимацию">
-              ANIM {motion === 'system' ? 'AUTO' : motion.toUpperCase()}
-            </button>
-          </dd>
+          <dt className="visually-hidden">Шифрование канала</dt>
+          <dd>ENC AES-256</dd>
         </div>
         <div className={s.metaItem}>
           <dt className="visually-hidden">Гриф</dt>

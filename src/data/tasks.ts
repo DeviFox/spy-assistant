@@ -1,8 +1,10 @@
 import type { Task } from '../types';
 
 /**
- * DEMO tasks. Neutral placeholders that exercise every task type.
- * Replace with the real scenario; codes here are not tied to any real lock or gift.
+ * Operation flow (DRAFT 01):
+ *   T-01 brief → T-02 calibration → T-03 envelope → T-04 UV flashlight → T-05 hidden PIN
+ *   → T-06 dossier → T-07 poem stencil → T-08 final extraction.
+ * Lines marked TODO are placeholders: set them to match the real props (sticker, UV ink, vault).
  */
 export const tasks: Task[] = [
   {
@@ -15,90 +17,147 @@ export const tasks: Task[] = [
     hints: ['Документ открывается кнопкой в блоке Required files или в списке FILES справа.'],
     requiresDocuments: ['DOC-001'],
     confirmLabel: 'Подтвердить ознакомление',
-    successMessage: 'Брифинг подтверждён. Этап INITIALIZATION завершён.',
+    successMessage: 'Брифинг подтверждён. Переходите к калибровке.',
+    reward: 'Задание T-02',
+    unlocks: [{ type: 'issueTask', task: 'T-02' }],
+  },
+  {
+    // TASK 00 · CALIBRATION: introduces the "confirm a real-world action" mechanic.
+    id: 'T-02',
+    title: 'Калибровка',
+    description: 'Проверка канала связи с куратором.',
+    // TODO: describe the real action (e.g. where the package is handed over).
+    instruction: 'Ваш куратор выйдет на контакт лично и передаст вам конверт. Получите передачу и подтвердите выполнение.',
+    type: 'PHYSICAL',
+    stage: 'initialization',
+    hints: ['Агент найдёт вас сам. Оставайтесь на месте.'],
+    confirmLabel: 'Подтвердить выполнение',
+    successMessage: 'Передача получена. Канал связи с агентом подтверждён.',
     reward: 'Доступ к этапу EQUIPMENT',
     unlocks: [
       { type: 'completeStage', stage: 'initialization' },
-      { type: 'issueTask', task: 'T-02' },
-    ],
-  },
-  {
-    id: 'T-02',
-    title: 'Демонстрационный замок',
-    description: 'Проверка ввода кода. Введите демонстрационный код доступа.',
-    instruction: 'Найдите четырёхзначный код и введите его в поле ниже. Регистр и пробелы не важны.',
-    type: 'CODE_INPUT',
-    stage: 'equipment',
-    hints: ['Код состоит из четырёх цифр.', 'Все цифры нечётные и идут по возрастанию.'],
-    expectedAnswer: '1357',
-    successMessage: 'Код принят. Получено оборудование: UV FLASHLIGHT.',
-    failureMessage: 'Код отклонён. Проверьте данные и повторите.',
-    reward: 'UV FLASHLIGHT',
-    unlocks: [
-      { type: 'grantItem', item: 'uv-flashlight' },
-      { type: 'completeStage', stage: 'equipment' },
       { type: 'issueTask', task: 'T-03' },
     ],
   },
   {
+    // TASK 01 · DOCUMENT RECOVERY: the sheet comes back in T-05 (UV ink).
     id: 'T-03',
-    title: 'Полевое действие',
-    description: 'Выполнить действие в реальном мире и подтвердить результат.',
-    instruction: 'Демонстрационное физическое задание. Когда действие выполнено, подтвердите его в системе.',
+    title: 'Изъятие документа',
+    description: 'По данным источника, в материалах дела лежит нужный документ.',
+    instruction: 'Документ должен находится среди материалов. Найдите его и изымите.',
     type: 'PHYSICAL',
-    stage: 'investigation',
-    hints: ['Это демонстрационное задание: достаточно подтвердить выполнение.'],
-    confirmLabel: 'Действие выполнено',
-    successMessage: 'Действие зарегистрировано. Получено оборудование: ACCESS KEY.',
-    reward: 'ACCESS KEY, документ AGENT_PROFILE.dat',
+    stage: 'equipment',
+    hints: ['Лучшее место, чтобы спрятать бумагу, — среди других бумаг.', 'Ищите то, что запечатано.'],
+    confirmLabel: 'Документ изъят',
+    successMessage: 'Документ изъят. Возможно, прочитать его пока не удаётся. Сохраните его.',
+    reward: 'UNKNOWN DOCUMENT, снимок EXHIBIT_B-2.png',
     unlocks: [
-      { type: 'grantItem', item: 'access-key' },
-      { type: 'unlockDocument', document: 'DOC-002' },
-      { type: 'unlockArchive', entry: 'ARC-IMG-01' },
+      { type: 'grantItem', item: 'strange-sheet' },
+      { type: 'unlockDocument', document: 'DOC-004' },
       { type: 'issueTask', task: 'T-04' },
     ],
   },
   {
+    // TASK 02 · EQUIPMENT RECOVERY: the answer is the serial number on a sticker on the flashlight.
     id: 'T-04',
-    title: 'Изучение материалов',
-    description: 'Изучить досье и указать ключевое слово из него.',
-    instruction: 'Откройте AGENT_PROFILE.dat, найдите поле «Контрольное слово» и введите его значение.',
-    type: 'INVESTIGATION',
-    stage: 'investigation',
-    hints: ['Контрольное слово указано в таблице полей документа.'],
-    requiresDocuments: ['DOC-002'],
-    expectedAnswer: 'ОБРАЗЕЦ',
-    successMessage: 'Ответ подтверждён. Получено оборудование: DECODER.',
-    failureMessage: 'Ответ не совпадает с данными досье.',
-    reward: 'DECODER, документ SECURITY_REPORT.pdf',
+    title: 'Получение оборудования',
+    description: 'Для следующего этапа нужен спецприбор. Его местонахождение установлено лишь приблизительно.',
+    // The hiding place is shown in DOC-004 (public/place.webp).
+    instruction: 'Источник передал снимок возможного места хранения. Найдите прибор и поставьте его на учёт по серийному номеру.',
+    type: 'CODE_INPUT',
+    stage: 'equipment',
+    hints: ['Это место вам знакомо. Сравните снимок с обстановкой вокруг.', 'Серийный номер указан на корпусе прибора.'],
+    requiresDocuments: ['DOC-004'],
+    expectedAnswer: '16092023', // TODO: the number printed on the sticker.
+    successMessage: 'Серийный номер подтверждён. Прибор поставлен на учёт.',
+    failureMessage: 'Оборудование с таким номером не зарегистрировано.',
+    reward: 'UV FLASHLIGHT',
     unlocks: [
-      { type: 'grantItem', item: 'decoder' },
-      { type: 'unlockDocument', document: 'DOC-003' },
-      { type: 'completeStage', stage: 'investigation' },
+      { type: 'grantItem', item: 'uv-flashlight' },
+      { type: 'completeStage', stage: 'equipment' },
       { type: 'issueTask', task: 'T-05' },
     ],
   },
   {
+    // TASK 03 · HIDDEN DATA: the PIN is written in UV ink on the sheet from T-03.
     id: 'T-05',
-    title: 'Выбор маршрута',
-    description: 'Выбрать один из вариантов на основе отчёта безопасности.',
-    instruction: 'Прочитайте SECURITY_REPORT.pdf и выберите маршрут, отмеченный в отчёте как допустимый.',
-    type: 'DECISION',
-    stage: 'access',
-    hints: ['В отчёте только один маршрут имеет статус «допустим».'],
-    requiresDocuments: ['DOC-003'],
-    options: [
-      { id: 'A', label: 'Маршрут A' },
-      { id: 'B', label: 'Маршрут B' },
-      { id: 'C', label: 'Маршрут C' },
-    ],
-    expectedAnswer: 'B',
-    successMessage: 'Маршрут подтверждён. Получено оборудование: MAGNETIC TOOL.',
-    failureMessage: 'Маршрут не соответствует отчёту.',
-    reward: 'MAGNETIC TOOL',
+    title: 'Скрытые данные',
+    description: 'Изъятый документ скрывает больше, чем показывает.',
+    instruction: 'Получите из документа код доступа. Всё необходимое у вас уже есть.',
+    type: 'CODE_INPUT',
+    stage: 'investigation',
+    hints: ['Не всё можно увидеть при обычном свете.', 'Прибор из прошлого задания нужен именно для этого. Лучше работать в темноте.'],
+    expectedAnswer: '1703', // TODO: the PIN written in UV ink.
+    successMessage: 'Код принят. Открыт доступ к засекреченным материалам.',
+    failureMessage: 'Код отклонён.',
+    reward: 'Изображение 01, документ AGENT_PROFILE.dat',
     unlocks: [
-      { type: 'grantItem', item: 'magnetic-tool' },
-      { type: 'completeStage', stage: 'access' },
+      // Order matters: the image is announced first, then the dossier.
+      { type: 'unlockArchive', entry: 'ARC-IMG-01' },
+      { type: 'unlockDocument', document: 'DOC-002' },
+      { type: 'issueTask', task: 'T-06' },
     ],
+  },
+  {
+    id: 'T-06',
+    title: 'Изучение материалов',
+    description: 'Часть досье повреждена при передаче.',
+    instruction: 'Восстановите контрольное слово из досье агента.',
+    type: 'INVESTIGATION',
+    stage: 'investigation',
+    hints: ['Часть букв скрыта. Слово знакомо вам лично.'],
+    requiresDocuments: ['DOC-002'],
+    expectedAnswer: 'ЧИПСЕКИ',
+    successMessage: 'Контрольное слово подтверждено. Получен новый документ.',
+    failureMessage: 'Ответ не совпадает с данными досье.',
+    reward: 'документ ENCRYPTED_POEM.png',
+    unlocks: [
+      { type: 'unlockDocument', document: 'DOC-003' },
+      { type: 'completeStage', stage: 'investigation' },
+      { type: 'issueTask', task: 'T-07' },
+    ],
+  },
+  {
+    // TASK 04 · MESSAGE DECODING: the paper stencil waits in the same box of papers as the T-03 envelope.
+    id: 'T-07',
+    title: 'Расшифровка',
+    description: 'Перехвачено сообщение. На вид — личное письмо.',
+    instruction: 'Извлеките из сообщения скрытое слово.',
+    type: 'INVESTIGATION',
+    stage: 'access',
+    hints: [
+      'Метод расшифровки указан в самом документе.',
+      'Вернитесь туда, где был изъят первый документ. Там осталось кое-что ещё.',
+      'Откройте документ в режиме чтения и приложите найденное к экрану.',
+    ],
+    requiresDocuments: ['DOC-003'],
+    expectedAnswer: 'СЛАДУСЯ',
+    successMessage: 'Слово принято. Авторизация агента подтверждена.',
+    failureMessage: 'Слово не распознано.',
+    reward: 'документ VAULT_ACCESS.key',
+    unlocks: [
+      { type: 'unlockDocument', document: 'DOC-005' },
+      { type: 'log', level: 'success', message: 'ASSET P-03: авторизация подтверждена.' },
+      { type: 'completeStage', stage: 'access' },
+      { type: 'issueTask', task: 'T-08' },
+    ],
+  },
+  {
+    // TASK 05 · FINAL EXTRACTION
+    id: 'T-08',
+    title: 'Извлечение объекта',
+    description: 'Авторизация подтверждена. Комбинация получена.',
+    instruction: 'Хранилище находится в вашем секторе. Вскройте контейнер и извлеките объект.',
+    type: 'PHYSICAL',
+    stage: 'extraction',
+    hints: [
+      'Порядок сборки комбинации указан в VAULT_ACCESS.key.',
+      'Все исходные данные у вас: на найденных предметах и в вашей памяти.',
+    ],
+    requiresDocuments: ['DOC-005'],
+    confirmLabel: 'Приступить к извлечению',
+    successMessage: 'Запущен протокол рассекречивания.',
+    reward: 'Засекреченный объект',
+    unlocks: [{ type: 'completeStage', stage: 'extraction' }],
   },
 ];

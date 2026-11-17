@@ -56,3 +56,24 @@ a { color: inherit; text-decoration: none; }
   width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
+
+/*
+ * Print-style registration marks (corner crop marks) drawn in the padding around an element.
+ * Used on documents that something has to be lined up with. Set --reg-color and padding: var(--reg-gap).
+ */
+:root { --reg-gap: 14px; }
+.reg-marks {
+  --reg-len: 18px;
+  --reg-w: 1.5px;
+  --reg-c: linear-gradient(var(--reg-color, currentColor), var(--reg-color, currentColor));
+  background:
+    var(--reg-c) top left / var(--reg-len) var(--reg-w),
+    var(--reg-c) top left / var(--reg-w) var(--reg-len),
+    var(--reg-c) top right / var(--reg-len) var(--reg-w),
+    var(--reg-c) top right / var(--reg-w) var(--reg-len),
+    var(--reg-c) bottom left / var(--reg-len) var(--reg-w),
+    var(--reg-c) bottom left / var(--reg-w) var(--reg-len),
+    var(--reg-c) bottom right / var(--reg-len) var(--reg-w),
+    var(--reg-c) bottom right / var(--reg-w) var(--reg-len);
+  background-repeat: no-repeat;
+}

@@ -88,8 +88,6 @@ export function AlarmEvent() {
 }
 
 function AlarmScreen({ alarm, phase, go, finish }: { alarm: Alarm; phase: Phase; go: (p: Phase) => void; finish: () => void }) {
-  const sound = useOperation((st) => st.sound);
-  const setSound = useOperation((st) => st.setSound);
   const tone = phase === 'alarm' || phase === 'lockdown' ? 'red' : phase === 'recovery' ? 'amber' : 'green';
   const caption = {
     alarm: 'INTRUSION DETECTED',
@@ -108,23 +106,21 @@ function AlarmScreen({ alarm, phase, go, finish }: { alarm: Alarm; phase: Phase;
           <span className={s.headCap}><Icon name={tone === 'green' ? 'check' : 'alert'} size={16} />{caption}</span>
           <span className={s.headAside}>
             <span className="cap">{alarm.id}</span>
-            <button type="button" className={s.sound} onClick={() => setSound(!sound)} aria-pressed={sound}>
-              {sound ? 'SOUND ON' : 'SOUND OFF'}
-            </button>
+            <span className={s.trace}>SRC 10.0.4.17</span>
           </span>
         </header>
-        {phase === 'alarm' && <Countdown alarm={alarm} sound={sound} onGranted={() => go('granted')} onExpired={() => go('lockdown')} />}
-        {phase === 'lockdown' && <Lockdown alarm={alarm} sound={sound} onRecover={() => go('recovery')} />}
+        {phase === 'alarm' && <Countdown alarm={alarm} onGranted={() => go('granted')} onExpired={() => go('lockdown')} />}
+        {phase === 'lockdown' && <Lockdown alarm={alarm} onRecover={() => go('recovery')} />}
         {phase === 'recovery' && <Recovery alarm={alarm} onDone={() => go('restored')} />}
         {(phase === 'granted' || phase === 'restored') && (
-          <Resolved message={phase === 'granted' ? alarm.successMessage : alarm.recovery.successMessage} sound={sound && phase === 'granted'} onClose={finish} />
+          <Resolved message={phase === 'granted' ? alarm.successMessage : alarm.recovery.successMessage} sound={phase === 'granted'} onClose={finish} />
         )}
       </section>
     </div>
   );
 }
 
-function Countdown({ alarm, sound, onGranted, onExpired }: { alarm: Alarm; sound: boolean; onGranted: () => void; onExpired: () => void }) {
+function Countdown({ alarm, onGranted, onExpired }: { alarm: Alarm; onGranted: () => void; onExpired: () => void }) {
   const answer = useOperation((st) => st.answerAlarm);
   const total = alarm.seconds * 1000;
   const deadline = useRef(performance.now() + total);
@@ -137,7 +133,7 @@ function Countdown({ alarm, sound, onGranted, onExpired }: { alarm: Alarm; sound
   const secLeft = Math.ceil(left / 1000);
 
   // Machine alarm for the whole countdown.
-  useEffect(() => (sound ? startAlarm() : undefined), [sound]);
+  useEffect(() => startAlarm(), []);
 
   useEffect(() => {
     let raf = 0;
@@ -167,8 +163,8 @@ function Countdown({ alarm, sound, onGranted, onExpired }: { alarm: Alarm; sound
   }, [elapsed, alarm.warnings]);
 
   useEffect(() => {
-    if (sound && secLeft <= 5 && secLeft > 0) tick();
-  }, [secLeft, sound]);
+    if (secLeft <= 5 && secLeft > 0) tick();
+  }, [secLeft]);
 
   const submit = (value: string) => {
     if (done.current) return { ok: false, message: 'Время истекло.' };
@@ -213,12 +209,11 @@ function Countdown({ alarm, sound, onGranted, onExpired }: { alarm: Alarm; sound
   );
 }
 
-function Lockdown({ alarm, sound, onRecover }: { alarm: Alarm; sound: boolean; onRecover: () => void }) {
+function Lockdown({ alarm, onRecover }: { alarm: Alarm; onRecover: () => void }) {
   const [wait, setWait] = useState(alarm.lockdown.penaltySeconds);
   const btn = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    if (sound) lockdownTone();
-    // Sound is read once, on entering lockdown.
+    lockdownTone();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {

@@ -1,6 +1,5 @@
 /*
- * Motion grammar. Everything here is disabled under [data-motion='off'],
- * which the app sets from the user setting or prefers-reduced-motion.
+ * Motion grammar. Always on: the experience depends on it.
  */
 
 @keyframes line-in {
@@ -65,13 +64,6 @@
 .slip { animation: slip 380ms steps(6, end) 1; }
 .page-in { animation: page-in var(--t-med) var(--ease-out); }
 
-[data-motion='off'] *, [data-motion='off'] *::before, [data-motion='off'] *::after {
-  animation-duration: 0.001ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.001ms !important;
-}
-/* Keep the caret visible but static when motion is off. */
-[data-motion='off'] .caret { animation: none !important; opacity: 1 !important; }
 
 /*
  * Timed alarm. "freeze": the console hangs — every animation (caret included) stops mid-frame,

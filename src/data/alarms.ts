@@ -2,7 +2,7 @@ import type { Alarm } from '../types';
 
 /**
  * Timed alarm events. Armed by the `armAlarm` effect (see events.ts).
- * DEMO placeholder: the answer is derived from the code already found in T-02 (1+3+5+7).
+ * AL-01 asks about the agent's birth date 19.11.2000 (the dossier shows only 19.11): digit sum 14, reversed 00021191.
  * Failing is never final: lockdown leads to a short recovery protocol.
  */
 export const alarms: Alarm[] = [
@@ -23,9 +23,9 @@ export const alarms: Alarm[] = [
     ],
     seconds: 20,
     title: 'НЕСАНКЦИОНИРОВАННЫЙ ДОСТУП',
-    prompt: 'Подтвердите личность агента. Введите сумму цифр кода, найденного в задании T-02.',
+    prompt: 'Подтвердите личность агента. Введите сумму цифр вашей полной даты рождения.',
     inputLabel: 'Verification sum',
-    expectedAnswer: '16',
+    expectedAnswer: '14',
     warnings: [
       { at: 0, level: 'error', message: 'Обнаружено внешнее подключение к контуру.' },
       { at: 4, level: 'warning', message: 'Канал связи нестабилен.' },
@@ -40,10 +40,10 @@ export const alarms: Alarm[] = [
       penaltySeconds: 8,
     },
     recovery: {
-      prompt: 'Протокол восстановления. Введите код из задания T-02 в обратном порядке.',
+      prompt: 'Протокол восстановления. Введите цифры вашей даты рождения (ДДММГГГГ) в обратном порядке.',
       inputLabel: 'Recovery code',
-      expectedAnswer: '7531',
-      hint: 'Код из четырёх цифр, прочитанный справа налево.',
+      expectedAnswer: '00021191',
+      hint: 'Восемь цифр даты рождения, прочитанные справа налево.',
       successMessage: 'Доступ восстановлен.',
       effects: [{ type: 'notify', level: 'warning', message: 'Доступ восстановлен' }],
     },
