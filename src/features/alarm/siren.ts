@@ -5,7 +5,7 @@
 type Ctor = typeof AudioContext;
 let ctx: AudioContext | null = null;
 
-function audio(): AudioContext | null {
+export function audio(): AudioContext | null {
   if (!ctx) {
     const C: Ctor | undefined = window.AudioContext ?? (window as unknown as { webkitAudioContext?: Ctor }).webkitAudioContext;
     if (!C) return null;
@@ -111,7 +111,7 @@ export function glitchBurst(intensity = 1) {
   if (Math.random() < 0.4) tone(200 + Math.random() * 1800, 0, 0.05, 0.03 * intensity, 'square', 80 + Math.random() * 3000);
 }
 
-function tone(freq: number, start: number, dur: number, volume: number, type: OscillatorType, endFreq?: number) {
+export function tone(freq: number, start: number, dur: number, volume: number, type: OscillatorType, endFreq?: number) {
   const a = audio();
   if (!a) return;
   const t = a.currentTime + start;

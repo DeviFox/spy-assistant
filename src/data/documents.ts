@@ -32,6 +32,7 @@ export const documents: CaseDocument[] = [
     category: 'EVIDENCE',
     type: 'IMAGE',
     classification: 'RESTRICTED',
+    noQuickOpen: true,
     content: [
       { kind: 'heading', text: 'Вещественное доказательство B-2' },
       { kind: 'paragraph', text: 'Снимок получен от источника. Место съёмки не установлено.' },
@@ -78,7 +79,7 @@ export const documents: CaseDocument[] = [
         ],
       },
       { kind: 'section', text: 'Служебные отметки' },
-      { kind: 'fields', rows: [['Контрольное слово', 'Ч***ЕКИ']] },
+      { kind: 'fields', rows: [['Контрольное слово', 'Ч___ЕКИ']] },
     ],
   },
   {
@@ -119,7 +120,7 @@ export const documents: CaseDocument[] = [
         rows: [
           ['01', 'Последняя цифра серийного номера спецоборудования.'],
           ['02', 'Первая цифра кода, обнаруженного в изъятом документе.'],
-          ['03', 'Контрольная цифра агента: сведите результат проверки личности к одной цифре.'],
+          ['03', 'Первая цифра номера досье агента.'],
           ['04', 'Число букв в расшифрованном слове.'],
         ],
       },

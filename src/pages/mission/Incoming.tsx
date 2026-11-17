@@ -4,6 +4,7 @@ import { findDocument, findItem } from '../../features/operation/engine';
 import { archiveEntries } from '../../data/archive';
 import type { IconName } from '../../types';
 import { Icon } from '../../components/common/Icon';
+import { modalClose, modalOpen } from '../../features/audio/sfx';
 import s from './mission.module.css';
 
 const mediaIcon = { TEXT: 'text', IMAGE: 'image', AUDIO: 'audio', VIDEO: 'video' } as const;
@@ -21,7 +22,10 @@ export function Incoming() {
 
   const show = Boolean(key) && !blocked;
   useEffect(() => {
-    if (show) primaryRef.current?.focus();
+    if (!show) return;
+    primaryRef.current?.focus();
+    modalOpen();
+    return () => modalClose();
   }, [show, key]);
 
   if (!show || !key) return null;
@@ -36,7 +40,7 @@ export function Incoming() {
     const d = findDocument(id);
     name = d?.filename ?? id;
     text = d?.title ?? '';
-    openable = true;
+    openable = !d?.noQuickOpen;
   } else if (kind === 'item') {
     const it = findItem(id);
     icon = it?.icon ?? 'equipment';

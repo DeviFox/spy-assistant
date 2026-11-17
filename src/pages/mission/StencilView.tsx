@@ -1,13 +1,19 @@
 import { useEffect, useRef } from 'react';
 import { Icon } from '../../components/common/Icon';
+import { modalClose, modalOpen } from '../../features/audio/sfx';
 import s from './stencil.module.css';
 
 /**
- * Full-screen image on black, fitted to the screen height, for laying a paper stencil over the screen.
+ * Full-screen image on black, fixed at 513px wide, for laying a paper stencil over the screen.
  * Esc or the exit button closes it.
  */
 export function StencilView({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
   const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    modalOpen();
+    return modalClose;
+  }, []);
 
   useEffect(() => {
     rootRef.current?.requestFullscreen?.().catch(() => { /* fullscreen denied: the fixed overlay still covers the page */ });

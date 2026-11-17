@@ -4,6 +4,7 @@ import * as engine from '../../features/operation/engine';
 import { operation } from '../../data/operation';
 import { declassifyTone, glitchBurst } from '../../features/alarm/siren';
 import { Icon } from '../../components/common/Icon';
+import { modalOpen } from '../../features/audio/sfx';
 import s from './finale.module.css';
 
 const PRIZE = 'main-prize';
@@ -74,7 +75,10 @@ export function Finale() {
 function Confirm({ onConfirm }: { onConfirm: () => void }) {
   const [holding, setHolding] = useState(false);
   const btn = useRef<HTMLButtonElement>(null);
-  useEffect(() => btn.current?.focus(), []);
+  useEffect(() => {
+    btn.current?.focus();
+    modalOpen();
+  }, []);
 
   const key = (down: boolean) => (e: React.KeyboardEvent) => {
     if (e.key !== ' ' && e.key !== 'Enter') return;

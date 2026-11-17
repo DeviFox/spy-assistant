@@ -11,10 +11,9 @@
 .frame { --reg-color: var(--c-accent); --reg-inset: 24px; padding: var(--reg-gap); }
 .img {
   display: block;
-  height: calc(100vh - 2 * var(--reg-gap) - 2 * var(--reg-inset));
-  width: auto;
-  max-width: calc(100vw - 2 * var(--reg-gap) - 2 * var(--reg-inset));
-  object-fit: contain;
+  /* Fixed size so the paper stencil, cut to match, always lines up (browser zoom must be 100%). */
+  width: 513px;
+  height: auto;
   user-select: none;
 }
 

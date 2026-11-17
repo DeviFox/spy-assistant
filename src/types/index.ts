@@ -112,6 +112,8 @@ export interface CaseDocument {
   type: MediaType;
   classification: string;
   content: DocumentBlock[];
+  /** The arrival card offers no "Открыть" button: the agent reads the task first and opens the file herself. */
+  noQuickOpen?: boolean;
 }
 
 export type ArchiveCategory = 'DOCUMENTS' | 'IMAGES' | 'AUDIO' | 'LOGS';

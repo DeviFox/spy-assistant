@@ -7,6 +7,7 @@ import type { CaseDocument } from '../../types';
 import { MediaPlaceholder } from '../../components/common/MediaPlaceholder';
 import { Icon } from '../../components/common/Icon';
 import { StencilView } from './StencilView';
+import { modalClose, modalOpen } from '../../features/audio/sfx';
 import s from './viewer.module.css';
 
 const stamp = (ts: number) => new Date(ts).toLocaleString('ru-RU', { dateStyle: 'short', timeStyle: 'short' });
@@ -21,6 +22,7 @@ export function Viewer() {
 
   useEffect(() => {
     if (!viewing) return;
+    modalOpen();
     const back = document.activeElement as HTMLElement | null;
     closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && view(null);
@@ -28,6 +30,7 @@ export function Viewer() {
     return () => {
       window.removeEventListener('keydown', onKey);
       back?.focus?.();
+      modalClose();
     };
   }, [viewing, view]);
 

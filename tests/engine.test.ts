@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as e from '../src/features/operation/engine';
 import { equipment } from '../src/data/equipment';
-import { alarms } from '../src/data/alarms';
+import { documents } from '../src/data/documents';
 
 /** Placeholder answers change as props are made, so tests read them from the scenario. */
 const answer = (id: string) => e.findTask(id)!.expectedAnswer!;
@@ -170,15 +170,18 @@ describe('stencil task', () => {
 
 /**
  * Vault combination, as VAULT_ACCESS.key describes it: last digit of the flashlight serial,
- * first digit of the UV PIN, the identity-check sum reduced to one digit, letters in the decrypted word.
+ * first digit of the UV PIN, first digit of the dossier number, letters in the decrypted word.
  * Set the case lock to this; the console prints it when tests run.
  */
 describe('vault combination', () => {
-  const digitRoot = (n: string) => String(((Number(n) - 1) % 9) + 1);
+  const dossierNo = documents
+    .find((d) => d.id === 'DOC-002')!
+    .content.flatMap((b) => (b.kind === 'fields' ? b.rows : []))
+    .find(([k]) => k === 'Досье №')![1];
   const code = [
     SERIAL.slice(-1),
     PIN[0],
-    digitRoot(alarms.find((a) => a.id === 'AL-01')!.expectedAnswer),
+    dossierNo.match(/\d/)![0],
     String([...answer('T-07')].length),
   ].join('');
 
