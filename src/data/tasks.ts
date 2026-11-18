@@ -122,7 +122,7 @@ export const tasks: Task[] = [
     id: 'T-07',
     title: 'Расшифровка',
     description: 'Перехвачено сообщение. На вид — личное письмо.',
-    instruction: 'Извлеките из сообщения скрытое слово.',
+    instruction: 'В сообщении скрыт ваш дополнительный позывной. Извлеките его.',
     type: 'INVESTIGATION',
     stage: 'access',
     hints: [
@@ -132,8 +132,8 @@ export const tasks: Task[] = [
     ],
     requiresDocuments: ['DOC-003'],
     expectedAnswer: 'СЛАДУСЯ',
-    successMessage: 'Слово принято. Авторизация агента подтверждена.',
-    failureMessage: 'Слово не распознано.',
+    successMessage: 'Позывной принят. Авторизация агента подтверждена.',
+    failureMessage: 'Позывной не распознан.',
     reward: 'документ VAULT_ACCESS.key',
     unlocks: [
       { type: 'unlockDocument', document: 'DOC-005' },
